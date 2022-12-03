@@ -22,7 +22,7 @@
 \textbf{Ex (One-sided T)}: $T = \frac{\sqrt{n}(\bar{X}_n-\mu_0)}{S_n}$ with $c_\alpha = t_{n-1, 1-\alpha}$ or $Z = -T$ and $c_\alpha$ unchanged (symmetry). Intuition: want to reject for large $\mu > \mu_0$ (right-sided).\\
 \textbf{Deriving $\beta(\theta)$}: (1) add and subtract (true) $\mu$, (2) look at behavior as $\mu$ changes. \\
 The one-sided test is also a test for $H_0:\mu\leq\mu_0$ against $H_1:\mu>\mu_0$ with size $\alpha$, because $sup_{\theta\in\Theta_0, \sigma\in\Gamma}\beta^{1sided}(\theta)\leq\alpha$.
-\includegraphics[width = 0.15\textwidth]{inhalt/power_curves.png}\\
+\includegraphics[width = 0.15\textwidth]{content/power_curves.png}\\
 \textbf{Def (p-value)}: For any realization $T^*$, $p^* = inf\{p\in[0,1]: T^*>c_p\}$. Intuition: smallest $\alpha$ for which we would still reject. \\\footnotesize{Under $H_0$, $p\sim Unif[0,1]$ (require $P(p^*<\alpha)=\alpha$, i.e. want $Pr_\theta(reject H_0) < \alpha$), but holds $\forall\alpha$.}\\
 \textbf{p-value with simple $H_0$}: If $F_0$ is strictly increasing, $p* = 1 - F_0(T*)$ (again: $p~_{H_0}Unif[0,1]$).
 
@@ -35,7 +35,7 @@ We can also do the reverse: From any CS with coverage rate $1-\alpha$ can constr
 
 \subsection{Asymptotic Approximations}: 
 \textbf{Asymptotic argument}: No parametric model $f_(x;\theta)$, but, e.g., moments: $H_0: E(X) = \mu$. $T\xrightarrow{d}|N(0,1)|$ and we can use $\Phi^-1(x)$ to control $\alpha$ asymptotically. In particular, $P(T>z_{1-\alpha/2})\rightarrow \alpha$ under $H_0$.\\ 
-\textbf{Hypotheses}: Set of distributions $\mathbb{P}$ with $\mathbb{P}_0\subset\mathbb{P}$ set of distributions consitent with $H_0$.
+\textbf{Hypotheses}: Set of distributions $\mathbb{P}$ with $\mathbb{P}_0\subset\mathbb{P}$ set of distributions consitent with $H_0$.\\
 \textbf{Def 7.7 (Asymptotic power function)}: $\beta^\alpha(P) = lim_{n\to\infty}beta_n(P)$.\\
 \textbf{Def 7.8/7.9}: test with $\beta^a(P)$ is \emph{asymptotic level} $\alpha$ if $sup_{P\in P_0}\beta^a(P)\leq\alpha$ (\emph{size}: equality).\\
-\textbf{Def 7.10 (consistency)}: Test \emph{consistent} against alternative $P\in P_1$ if $\beta^a(P) = 1$.
+\textbf{Def 7.10}: Test \emph{consistent} against alternative $P\in P_1$ if $\beta^a(P) = 1$.

@@ -1,0 +1,56 @@
+\section{Asymptotic Theory}
+\subsection{Inequalities}
+\textbf{Thm 5.1 (Markov's Inequality)}: $X$ r.v., $g: \mathbb{R} \to [0, \infty)$, then $\forall \epsilon > 0$, $P(g(X) > \epsilon) \leq \frac{E(g(X))}{\epsilon}$.\\
+\textbf{Cor 5.1 (Chebyshev's Inequality)}: $X$ r.v., then $\forall \epsilon > 0$, $P(|X-E(X)| \geq \epsilon) \leq \frac{Var(X)}{\epsilon^2}$.
+
+\subsection{Modes of Convergence}
+\textbf{Def 5.2}: $plim_{n\to\infty}X_n = X \leftrightarrow \lim_{n\to\infty}P(|X_n-X|<\epsilon) = 1$.
+\textbf{Def 5.3}: $\hat{\theta}_n \emph{consistent} for \theta \leftrightarrow plim\hat{\theta}_n = \theta$. \\
+\textbf{Def 5.4}: $\{X_n\}_{n=1}^\infty$ converges in \emph{distribution} to $X$ $\leftrightarrow$ $\lim_{n\to\infty}F_{X_n}(x) = F_X(x)$ for every continuity point of $x$ of $F_X(\cdot)$. \\
+\textbf{Def 5.5}: $\{X_n\}_{n=1}^\infty$ converges in \emph{mean square} to $X$ $\leftrightarrow$ $\lim_{n\to\infty}E[(X_n-X)^2] = 0$. \\
+\textbf{Thm 5.2}: $X_n \xrightarrow{m.s.} \Rightarrow X_n \xrightarrow{p}X$. Proof by Chebyshev's inequality. The reverse is not true, consider $X_n \in{0, \sqrt{n}}$ with probabilities $1-1/n, 1/n$.\\
+\textbf{Thm 5.3}: $X_n \xrightarrow{p} \Rightarrow X_n \xrightarrow{d}X$. Proof uses definition of $\xrightarrow{p}$ and continuity. The reverse is generally \emph{not true}, consider $X_n = Z \sim N(0,1)$ and $X, Z \sim N(0, 1)$, have $F_{X_n}(x) = F_X(x)$ but $P(|Z-X|\geq\epsilon) > 0$. Exception: $X_n \xrightarrow{d} c \in \mathbb{R} \Rightarrow X_n \xrightarrow{p} c$.
+
+\subsection{Law of Large Numbers}
+\textbf{Thm 5.4 (LLN)}: ${X_i}_{i=1}^\infty$ seq. of uncorrelated rvs from $F_X$ with $\mu = E(X)$, $Var(X)$ existing and finite. Then $\bar{X}_n \xrightarrow{p}\mu$. Proof: Chebyshev's inequality.\\
+\textbf{Thm 5.5 (WLLN)}: ${X_i}_{i=1^\infty}$ seq. of uncorrelated rvs. Suppose $\mu_i = E(X_i)$ and $\sigma_i^2 = Var(X_i)$ exist and finite. If $\lim_{n\to\infty}\frac{1}{n^2}\sum_{i=1}^n\sigma_i^2 = 0$ then $\bar{X}_n - \frac{1}{n}\sum_{i=1}^n\mu_i \xrightarrow{p} 0$. \\
+\textbf{Thm 5.6 (LLN i.i.d)}: $\{X_i\}_{i=1}^\infty$ seq. of iid rvs from $F_X$ with $\mu=E(X)$ exist and finite. Then $\bar{X}_n\xrightarrow{p}\mu$.\\
+\textbf{Convergence Criteria}: Need a combination of three assumptions: (1) finite mean and/or variance (no LLN for Cauchy), (2) bounds on asymptotic variance (e.g. not growing too fast with $i$), (3) restricted dependence.
+
+\subsection{Central Limit Theorem}
+\textbf{Thm 5.7 (Lindeberg-Levy CLT)}: $\{X_i\}_{i=1}^\infty$ seq. of iid rvs from $F_X$, $\mu$ and $\sigma^2$ finite. Then $\sqrt{n}(\bar{X}_n-\mu) \xrightarrow{d} N(0,\sigma^2)$. \\
+\textbf{Thm 5.9 (Berry-Esseen)}: $\{X_i\}_{i=1}^\infty$ seq. of iid rvs from $F_X$, $\mu$ and $\sigma^2$ finite and $\lambda = E(|X-E(X)|^3)$ exist and finite. Let $Z\sim N(0,1)$. Then $|P\left(\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq x\right) - P(Z\leq x)| \leq \frac{C\lambda}{\sigma^3\sqrt{n}}$.\\
+
+\subsection{Convergence of Random Vectors}
+\textbf{Def 5.7}: $\textbf{X}_n \xrightarrow{p} \textbf{X} \leftrightarrow \lim_{n\infty}P(||\textbf{X}_n - \textbf{X}||<\epsilon)=1$.\\
+\textbf{Def 5.8}: $\textbf{X}_n \xrightarrow{ms} \textbf{X} \leftrightarrow \lim_{n\infty}E(||\textbf{X}_n - \textbf{X}||^2)=0$.\\
+\textbf{Def 5.9}: $\textbf{X}_n \xrightarrow{d} \textbf{X} \leftrightarrow \lim_{n\infty}F_{\textbf{X}_n}(x) = F_\textbf{X}(x)$ for every continuity point $x$ of $F_\textbf{X}(\cdot)$.\\
+\textbf{Thm 5.10 (Cramér-Wold)}: $\{\textbf{X}_n\}_{n=1}^\infty$ seq. of K-dimensional random vectors. Then, $\forall \lambda\in\mathbb{R^K}$ we have $\lambda'\textbf{X}_n \xrightarrow{d} \lambda'\textbf{X}$ $\leftrightarrow$ $\textbf{X}_n \xrightarrow{d} \textbf{X}$.
+
+\subsection{CMT and Slutzky's}
+\textbf{Thm 5.11 (CMT)}: Let $\{\textbf{X}_n\}_{n=1}^\infty$ be a sequence of K-dim. rvecs $\textbf{X}$ K-dim rvec, and $g:\mathbb{R^K}\to\mathbb{R}$ with discontinuity points D such that $P(\textbf{X}\in D)=0$. \\
+(a) $\textbf{X}_n \xrightarrow{p} \textbf{X} \Rightarrow g(\textbf{X}_n) \xrightarrow{p} g(\textbf{X})$.\\
+(b) $\textbf{X}_n \xrightarrow{d} \textbf{X} \Rightarrow g(\textbf{X}_n) \xrightarrow{d} g(\textbf{X})$. \\
+Implication: Sums and products of convergent sequences converge. Does \emph{not} hold for \emph{mean square} convergence.\\
+\textbf{Thm 5.12 (Slutzky's)}: $X_n$, $Y_n$ seq of rvs with $X_n\xrightarrow{d} X$ and $Y_n\xrightarrow{p} c\in \mathbb{R}$, then $X_n + Y_n \xrightarrow{d} X + c$ and $X_nY_n\xrightarrow{d}cX$, and if $c\neq0$, $X_n/Y_n \xrightarrow{d} X/c$. \\
+\textbf{Extension to rvecs}: $\textbf{X}_n \xrightarrow{d} \textbf{X}$ and $\textbf{Y}_n\xrightarrow{p}\textbf{C}\in\mathbb{R}^{K\times K}$, $\textbf{C}$ invertible, then $\textbf{Y}_n^{-1}\textbf{X}_n\xrightarrow{d}\textbf{C}^{-1}\textbf{X}$. \\
+\textbf{Example CMT}: $\left(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}\right)^2 \xrightarrow{d} N(0,1)^2 = \xi_1^2$.\\
+\textbf{Thm 5.13 (Delta-Method)}: $X_n$ seq of rvs with LL-CLT applying. $g:\mathbb{R}\to\mathbb{R}$ \emph{continuously diff.} at $\mu$ with $g'(\mu)\neq0$. Then $\sqrt{n}(g(X_n)-g(\mu)) \xrightarrow{d} N(0, g'(\mu)^2\sigma^2)$. Proof: CMT and Slutzky's applied to Taylor's/intermediate value theorem. 
+
+\subsection{Interval Estimation}
+Suppose $\{X_i\}_{i=1}^n$ is a seq of iid random variables with $\mu, \sigma^2$ finite. Then an asymptotically valid CI for $\mu$ is given by 
+\begin{equation*}
+	CI = \left[\bar{X}_n \pm \frac{z_{1-\alpha/2}}{\sqrt{n}}S_n\right]
+\end{equation*}
+where $S_n$ is a consistent estimator of $\sigma$ and $P(\mu\in CI) \to 1-\alpha$. Proof: CLT, CMT, Slutzky. 
+
+\subsection{Moment-Based Estimation}
+\textbf{Parameter of interest}: $\theta = h(E(g(X)))$ (simple case: $X, \theta$ scalars and $g:\mathbb{R}\to\mathbb{R}$ and $h:\mathbb{R}\to\mathbb{R}$ cont. diff.).\\
+\textbf{Moment-based estimator}: $\hat{\theta}_n = h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right)$. \emph{Consistency} follows from LLN and CMT. \\
+\textbf{Large-sample distribution}: If $Var(g(X))<\infty$ CLT applies so $\sqrt{n}\left(\frac{1}{n}\sum_{i=1}^ng(X_i) - E(g(X))\right)\xrightarrow{d}N(0, Var(g(X)))$. By the \emph{delta-method} if $h'(g(E(X)))\neq0$ we have 
+\begin{equation*}
+	\begin{split}
+		\sqrt{n}(\hat{\theta}_n - \theta) = \sqrt{n}\left(h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right) - h(E(g(X)))\right) \\
+		\xrightarrow{d} N(0, h'(E(g(X))^2Var(g(X)))).
+	\end{split}
+\end{equation*}

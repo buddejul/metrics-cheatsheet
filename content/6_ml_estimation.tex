@@ -5,12 +5,12 @@ Equivalently, we define the \textit{log-likelihood function} as $\log(L_n(\theta
 \textbf{Thm 6.2}: For $\tau(\theta)$ and $\hat{\theta}_n$ MLE of $\theta$, we have $\tau(\hat{\theta}_n)$ is MLE of $\tau(\theta)$.
 
 \subsection{Distribution of the MLE}
-\textbf{MLE Limit Distribution}: $\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{d} N(0, A^{-^1}BA^{-1})$ with $A = E_\theta[-\frac{\partial^2}{\partial\theta\partial'\theta}ln(f(\textbf{X}_i);\theta)]$ and $B = E_\theta[\frac{\partial}{\partial\theta}ln(f(\textbf{X}_i;\theta))\frac{\partial}{\partial\theta'}ln(f(\textbf{X}_i;\theta))]$. B \textit{var-cov} matrix of the score (since score mean zero by FOC). A is \textit{Fisher information}.\\
+\textbf{MLE Limit Distribution}: $\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{d} N(0, A^{-^1}BA^{-1})$ with $A = E_\theta[-\frac{\partial^2}{\partial\theta\partial'\theta}ln(f(\textbf{X}_i);\theta)]$ and $B = E_\theta[\frac{\partial}{\partial\theta}ln(f(\textbf{X}_i;\theta))\frac{\partial}{\partial\theta'}ln(f(\textbf{X}_i;\theta))]$. B \textit{var-cov} matrix of the score. A is \textit{Fisher information}.\\
 \textbf{Thm 6.3}: Under weak reg. cond. (diff; interch. integr./diff.) we have $A=B$.
 
 \subsection{CRLB}
 We could try to define best estimator in terms of MSE. However, MSE might depend on $\theta$ (e.g. $\bar{X}_n$ vs. $1$, the latter dominates for $\theta = 1$).\\
-Progress: Focus on \textit{unbiased} estimators and thus variance.\\
+Progress: Focus on \textit{unbiased} estimators.\\
 \textbf{Thm 6.4}: $\{X_i\}$ rs from $f(\textbf{x};\theta)$, $\hat{\theta}_n$ estimator of $\theta$. Then under some reg conds $Var_\theta[\hat{\theta}_n] = \frac{(\frac{\partial}{\partial\theta}E_\theta[\hat{\theta}_n])^2}{nE_\theta[(\frac{\partial}{\partial\theta}\log(f(\textbf{X};\theta)))^2]}$.\\
 % With unbiased estimators (numerator equals one) estimators attaining the lower bound are called \textit{efficient}.\\
 % Caveats: (1) Finite-sample efficient estimators rare; even MLE often biased, (2) allowing some bias can reduce variance and thus MSE, (3) MSE might not be criterion of interest.\\

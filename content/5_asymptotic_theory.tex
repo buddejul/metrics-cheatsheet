@@ -39,19 +39,13 @@ Implication: Sums and products of convergent sequences converge. Does \emph{not}
 
 \subsection{Interval Estimation}
 Suppose $\{X_i\}_{i=1}^n$ is a seq of iid random variables with $\mu, \sigma^2$ finite. Then an asymptotically valid CI for $\mu$ is given by 
-\begin{equation*}
-	CI = \left[\bar{X}_n \pm \frac{z_{1-\alpha/2}}{\sqrt{n}}S_n\right]
-\end{equation*}
+$CI = \left[\bar{X}_n \pm \frac{z_{1-\alpha/2}}{\sqrt{n}}S_n\right]$
 where $S_n$ is a consistent estimator of $\sigma$ and $P(\mu\in CI) \to 1-\alpha$. Proof: CLT, CMT, Slutzky. 
 
 \subsection{Moment-Based Estimation}
 \textbf{Parameter of interest}: $\theta = h(E(g(X)))$ (simple case: $X, \theta$ scalars and $g:\mathbb{R}\to\mathbb{R}$ and $h:\mathbb{R}\to\mathbb{R}$ cont. diff.).\\
-\textbf{Moment-based estimator}: $\hat{\theta}_n = h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right)$. \emph{Consistency} follows from LLN and CMT. \\
+\textbf{Moment-based estimator}: $\hat{\theta}_n = h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right)$. \emph{Consistency}: LLN and CMT. \\
 \textbf{Large-sample distribution}: If $Var(g(X))<\infty$ CLT applies so $\sqrt{n}\left(\frac{1}{n}\sum_{i=1}^ng(X_i) - E(g(X))\right)\xrightarrow{d}N(0, Var(g(X)))$. By the \emph{delta-method} if $h'(g(E(X)))\neq0$ we have 
-\begin{equation*}
-	\begin{split}
-		\sqrt{n}(\hat{\theta}_n - \theta) = 
+$		\sqrt{n}(\hat{\theta}_n - \theta) = 
 		%\sqrt{n}\left(h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right) - h(E(g(X)))\right) \\
-		\xrightarrow{d} N(0, h'(E(g(X))^2Var(g(X)))).
-	\end{split}
-\end{equation*}
+		\xrightarrow{d} N(0, h'(E(g(X))^2Var(g(X)))).$

@@ -9,10 +9,10 @@ Equivalently, we define the \textit{log-likelihood function} as $\log(L_n(\theta
 \textbf{Thm 6.3}: Under weak reg. cond. (diff; interch. integr./diff.) we have $A=B$.
 
 \subsection{CRLB}
-We could try to define "best" estimator in terms of MSE. However, MSE might depend on $\theta$ (e.g. $\bar{X}_n$ vs. $1$, the latter dominates for $\theta = 1$).\\
+We could try to define best estimator in terms of MSE. However, MSE might depend on $\theta$ (e.g. $\bar{X}_n$ vs. $1$, the latter dominates for $\theta = 1$).\\
 Progress: Focus on \textit{unbiased} estimators and thus variance.\\
 \textbf{Thm 6.4}: $\{X_i\}$ rs from $f(\textbf{x};\theta)$, $\hat{\theta}_n$ estimator of $\theta$. Then under some reg conds $Var_\theta[\hat{\theta}_n] = \frac{(\frac{\partial}{\partial\theta}E_\theta[\hat{\theta}_n])^2}{nE_\theta[(\frac{\partial}{\partial\theta}\log(f(\textbf{X};\theta)))^2]}$.\\
-With unbiased estimators (numerator equals one) estimators attaining the lower bound are called \textit{efficient}.\\
-Caveats: (1) Finite-sample efficient estimators rare; even MLE often biased, (2) allowing some bias can reduce variance and thus MSE, (3) MSE might not be criterion of interest.\\
+% With unbiased estimators (numerator equals one) estimators attaining the lower bound are called \textit{efficient}.\\
+% Caveats: (1) Finite-sample efficient estimators rare; even MLE often biased, (2) allowing some bias can reduce variance and thus MSE, (3) MSE might not be criterion of interest.\\
 \textbf{Relative efficiency}: $E_\theta[(\hat{\theta}_{1,n}-\theta)^2] \leq E_\theta[(\hat{\theta}_{2,n}-\theta)^2]$ for all $\theta\in\Theta$ and strict for some.\\
-\textbf{Asymptotic efficiency}: Asymptotic distribution often implies \textit{asymptotically unbiased}, efficiency than means attaining CRLB asymptotically. Thus, the MLE is asymptotically efficient. Similar, for two estimators (possibly not attaining the CRLB) we can say one is \textit{asymptotically relatively more efficient} (i.e. has lower asymptotic variance).
+\textbf{Asymptotic efficiency}: Asymptotic distribution often implies \textit{asymptotically unbiased}, efficiency than means attaining CRLB asymptotically. % Thus, the MLE is asymptotically efficient. Similar, for two estimators (possibly not attaining the CRLB) we can say one is \textit{asymptotically relatively more efficient} (i.e. has lower asymptotic variance).

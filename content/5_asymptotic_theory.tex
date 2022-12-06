@@ -4,16 +4,16 @@
 \textbf{Cor 5.1 (Chebyshev's Inequality)}: $X$ r.v., then $\forall \epsilon > 0$, $P(|X-E(X)| \geq \epsilon) \leq \frac{Var(X)}{\epsilon^2}$.
 
 \subsection{Modes of Convergence}
-\textbf{Def 5.2}: $plim_{n\to\infty}X_n = X \leftrightarrow \lim_{n\to\infty}P(|X_n-X|<\epsilon) = 1$.
-\textbf{Def 5.3}: $\hat{\theta}_n \emph{consistent} for \theta \leftrightarrow plim\hat{\theta}_n = \theta$. \\
+\textbf{Def 5.2}: $plim_{n\to\infty}X_n = X \leftrightarrow \lim_{n\to\infty}P(|X_n-X|<\epsilon) = 1$.\\
+%\textbf{Def 5.3}: $\hat{\theta}_n \emph{consistent} for \theta \leftrightarrow plim\hat{\theta}_n = \theta$. \\
 \textbf{Def 5.4}: $\{X_n\}_{n=1}^\infty$ converges in \emph{distribution} to $X$ $\leftrightarrow$ $\lim_{n\to\infty}F_{X_n}(x) = F_X(x)$ for every continuity point of $x$ of $F_X(\cdot)$. \\
 \textbf{Def 5.5}: $\{X_n\}_{n=1}^\infty$ converges in \emph{mean square} to $X$ $\leftrightarrow$ $\lim_{n\to\infty}E[(X_n-X)^2] = 0$. \\
 \textbf{Thm 5.2}: $X_n \xrightarrow{m.s.} \Rightarrow X_n \xrightarrow{p}X$. Proof by Chebyshev's inequality. The reverse is not true, consider $X_n \in{0, \sqrt{n}}$ with probabilities $1-1/n, 1/n$.\\
 \textbf{Thm 5.3}: $X_n \xrightarrow{p} \Rightarrow X_n \xrightarrow{d}X$. Proof uses definition of $\xrightarrow{p}$ and continuity. The reverse is generally \emph{not true}, consider $X_n = Z \sim N(0,1)$ and $X, Z \sim N(0, 1)$, have $F_{X_n}(x) = F_X(x)$ but $P(|Z-X|\geq\epsilon) > 0$. Exception: $X_n \xrightarrow{d} c \in \mathbb{R} \Rightarrow X_n \xrightarrow{p} c$.
 
 \subsection{Law of Large Numbers}
-\textbf{Thm 5.4 (LLN)}: ${X_i}_{i=1}^\infty$ seq. of uncorrelated rvs from $F_X$ with $\mu = E(X)$, $Var(X)$ existing and finite. Then $\bar{X}_n \xrightarrow{p}\mu$. Proof: Chebyshev's inequality.\\
-\textbf{Thm 5.5 (WLLN)}: ${X_i}_{i=1^\infty}$ seq. of uncorrelated rvs. Suppose $\mu_i = E(X_i)$ and $\sigma_i^2 = Var(X_i)$ exist and finite. If $\lim_{n\to\infty}\frac{1}{n^2}\sum_{i=1}^n\sigma_i^2 = 0$ then $\bar{X}_n - \frac{1}{n}\sum_{i=1}^n\mu_i \xrightarrow{p} 0$. \\
+%\textbf{Thm 5.4 (LLN)}: ${X_i}_{i=1}^\infty$ seq. of uncorrelated rvs from $F_X$ with $\mu = E(X)$, $Var(X)$ existing and finite. Then $\bar{X}_n \xrightarrow{p}\mu$. Proof: Chebyshev's inequality.\\
+%\textbf{Thm 5.5 (WLLN)}: ${X_i}_{i=1^\infty}$ seq. of uncorrelated rvs. Suppose $\mu_i = E(X_i)$ and $\sigma_i^2 = Var(X_i)$ exist and finite. If $\lim_{n\to\infty}\frac{1}{n^2}\sum_{i=1}^n\sigma_i^2 = 0$ then $\bar{X}_n - \frac{1}{n}\sum_{i=1}^n\mu_i \xrightarrow{p} 0$. \\
 \textbf{Thm 5.6 (LLN i.i.d)}: $\{X_i\}_{i=1}^\infty$ seq. of iid rvs from $F_X$ with $\mu=E(X)$ exist and finite. Then $\bar{X}_n\xrightarrow{p}\mu$.\\
 \textbf{Convergence Criteria}: Need a combination of three assumptions: (1) finite mean and/or variance (no LLN for Cauchy), (2) bounds on asymptotic variance (e.g. not growing too fast with $i$), (3) restricted dependence.
 
@@ -50,7 +50,8 @@ where $S_n$ is a consistent estimator of $\sigma$ and $P(\mu\in CI) \to 1-\alpha
 \textbf{Large-sample distribution}: If $Var(g(X))<\infty$ CLT applies so $\sqrt{n}\left(\frac{1}{n}\sum_{i=1}^ng(X_i) - E(g(X))\right)\xrightarrow{d}N(0, Var(g(X)))$. By the \emph{delta-method} if $h'(g(E(X)))\neq0$ we have 
 \begin{equation*}
 	\begin{split}
-		\sqrt{n}(\hat{\theta}_n - \theta) = \sqrt{n}\left(h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right) - h(E(g(X)))\right) \\
+		\sqrt{n}(\hat{\theta}_n - \theta) = 
+		%\sqrt{n}\left(h\left(\frac{1}{n}\sum_{i=1}^ng(X_i)\right) - h(E(g(X)))\right) \\
 		\xrightarrow{d} N(0, h'(E(g(X))^2Var(g(X)))).
 	\end{split}
 \end{equation*}

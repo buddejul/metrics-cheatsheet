@@ -2,9 +2,9 @@
 % Features: Moments, MLE, convolutions, relation to other distributions
 % Normal
 \textbf{Normal}: $E(X)= \mu$, $Var(X) = \sigma^2$. Sum of two independent Normals is Normal. \\
-\textbf{MVN}: $\sim N(\mu, \Sigma)$. Any linear combinations are Normal. \\
+\textbf{MVN}: $\sim N(\mu, \Sigma)$. Any linear combinations are Normal. $(X,Y) \sim N(\mu, \Sigma)$, then $X\independent Y \Leftrightarrow Cov(X,Y) = 0$. \\
 % Bernoulli
-\textbf{Bernoulli}: $X\sim Bern(p)$, $E(X) = E(X^k) = p$ and $Var(X) = p(1-p)$. $\hat{p}_{MLE} = \bar{X}_n$.\\
+% \textbf{Bernoulli}: $X\sim Bern(p)$, $E(X) = E(X^k) = p$ and $Var(X) = p(1-p)$. $\hat{p}_{MLE} = \bar{X}_n$.\\
 % Binomial
 % Uniform
 \textbf{Uniform}: $X\sim Unif(a,b)$, $F_X(x) = \frac{x-a}{b-a}$, $f_X(x) = \frac{1}{b-a}$, $E(X) = \frac{1}{2(b-a)}$, $Var(X) = \frac{1}{12}(b-a)^2$. $\hat{b}_{MLE} = max\{X_1, \ldots, X_n\}$ (min for a); $\hat{b}_{MM} = 2\bar{X}_n$.\\
@@ -14,7 +14,7 @@
 % Pareto
 \textbf{Pareto}: $X\sim Pareto(\alpha)$ then $E(X^k)$ only exists if $\alpha>k$. Given that, $E(X) = \frac{\alpha}{\alpha-1}$ and $Var(X) = \frac{\alpha}{(1-\alpha)^2(\alpha-2)}$. $Y = log(X) ~ Expo(\alpha)$. 20-80 rule: $\alpha = \frac{\ln 5}{\ln 4}\approx 1.16$.\\
 % Poisson
-\textbf{Poisson}: $K\sim Poisson(\lambda)$, $f_K(k) = \frac{\lambda^k\exp^{-\lambda}}{k!}$, $\lambda \in (0, \infty)$, $k\in\mathbb{N}_0$. $\hat{\lambda}_{MLE} = \bar{X}_n$.\\
+% \textbf{Poisson}: $K\sim Poisson(\lambda)$, $f_K(k) = \frac{\lambda^k\exp^{-\lambda}}{k!}$, $\lambda \in (0, \infty)$, $k\in\mathbb{N}_0$. $\hat{\lambda}_{MLE} = \bar{X}_n$.\\
 \textbf{t}: If $Y\sim N(0,1)$ and $Z\sim \chi^2_{n-1}$ and $X\independent Z$ then $\frac{N}{Z}~t_{n-1}$.\\
 % Chi-square
 % t-Distribution, Cauchy

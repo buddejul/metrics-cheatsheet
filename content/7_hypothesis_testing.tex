@@ -6,23 +6,23 @@
 \textbf{Def 7.3}: A \emph{hypothesis test} is a rule when to reject $H_0$ (in favor of $H_1$) given the data. \footnotesize{(\textit{Accepting} $H_0$ is weird, e.g. what about $\theta_0+\epsilon$?.)}\\
 
 \section{Size and Power}
-\textbf{Type-I error}: Reject $H_0$ although in fact true.\\
-\textbf{Type-II error}: \emph{Not} reject $H_0$ although in fact false.\\
-\textbf{Error rates}: \emph{Probabilities} of making these errors \footnotesize{(errors are random because they depend on the sample)}.\\
-\textbf{I-II-trade-off}: We want to minimize $P_\theta(reject H_0)$ $\forall \theta\in\Theta_0$ and maximize $P_\theta(reject H_0)$ $\forall \theta\in\Theta_1$ \footnotesize{($P_\theta$ denotes probabilities assuming $\theta$ is the true parameter).}\\
+\textbf{T-I error}: Reject $H_0$ although in fact true.\\
+\textbf{T-II error}: \emph{Not} reject $H_0$ although in fact false.\\
+\textbf{Error rates}: \emph{Probabilities} of making these errors \footnotesize{(errors are random because they depend on the sample)}. Usually \textbf{trade-off} between I and II.\\
+% \textbf{I-II-trade-off}: We want to minimize $P_\theta(reject H_0)$ $\forall \theta\in\Theta_0$ and maximize $P_\theta(reject H_0)$ $\forall \theta\in\Theta_1$ \footnotesize{($P_\theta$ denotes probabilities assuming $\theta$ is the true parameter).}\\
 \textbf{Def 7.4 (Power function)}: $\beta(\theta) = P_\theta(reject H_0)$.\\
-\textbf{Type-I error}: $\beta(\theta)$ for any $\theta\in\Theta_0$.\\
-\textbf{Type-II error}: $\beta(\theta)$ for any $\theta\in\Theta_1$.\\
+\textbf{T-I error rate}: $\beta(\theta)$ for any $\theta\in\Theta_0$.\\
+\textbf{T-II error rate}: $\beta(\theta)$ for any $\theta\in\Theta_1$.\\
 \textbf{Def 7.5/7.6}: For $\alpha\in[0,1]$, a test is \emph{level} $\alpha$ if $\sum_{\theta\in\Theta_0}\beta(\theta)\leq\alpha$ (\emph{size}: equality).\\
-\textbf{Test choice}: One approach: fix $\alpha$, take the one with the best power over all $\theta\in\Theta_1$ (might not exist).\\
+%\textbf{Test choice}: One approach: fix $\alpha$, take the one with the best power over all $\theta\in\Theta_1$ (might not exist).\\
 
 \subsection{Test statistics and critical values}
 \textbf{Goal}: Derive statistic $T$ and reject iff $T>c_\alpha$ controlling $sup_{\theta\in\Theta_0}P_\theta(T>c_\alpha)$ $\Rightarrow$ need $F_T(t)$.\\
 \textbf{Ex 7.2 (Two-sided T)}: $X\sim N(\mu, \sigma^2)$ so $\theta = (\mu, \sigma^2)$. Test $H_0:\mu=\mu_0$ against $H_1:\mu\neq\mu_0$ use $T = \frac{\sqrt{n}|\bar{X}_n-\mu_0|}{S_n} ~ |t_{n-1}|$ and reject for $T > c_\alpha = t_{n-1, 1-\alpha/2}$. By construction $sup_{\theta\in\Theta_0}P_\theta(T>c_\alpha)=\alpha$. \footnotesize{Note this holds for all $\sigma^2\in\Gamma$ thus a test of level and size $\alpha$.}\\
 \textbf{Ex (One-sided T)}: $T = \frac{\sqrt{n}(\bar{X}_n-\mu_0)}{S_n}$ with $c_\alpha = t_{n-1, 1-\alpha}$ or $Z = -T$ and $c_\alpha$ unchanged (symmetry). Intuition: want to reject for large $\mu > \mu_0$ (right-sided).\\
 \textbf{Deriving $\beta(\theta)$}: (1) add and subtract (true) $\mu$, (2) look at behavior as $\mu$ changes. \\
-The one-sided test is also a test for $H_0:\mu\leq\mu_0$ against $H_1:\mu>\mu_0$ with size $\alpha$, because $sup_{\theta\in\Theta_0, \sigma\in\Gamma}\beta^{1sided}(\theta)\leq\alpha$.
-\includegraphics[width = 0.15\textwidth]{content/power_curves.png}\\
+%The one-sided test is also a test for $H_0:\mu\leq\mu_0$ against $H_1:\mu>\mu_0$ with size $\alpha$, because $sup_{\theta\in\Theta_0, \sigma\in\Gamma}\beta^{1sided}(\theta)\leq\alpha$.
+% \includegraphics[width = 0.15\textwidth]{content/power_curves.png}\\
 \textbf{Def (p-value)}: For any realization $T^*$, $p^* = inf\{p\in[0,1]: T^*>c_p\}$. Intuition: smallest $\alpha$ for which we would still reject. \\\footnotesize{Under $H_0$, $p\sim Unif[0,1]$ (require $P(p^*<\alpha)=\alpha$, i.e. want $Pr_\theta(reject H_0) < \alpha$), but holds $\forall\alpha$.}\\
 \textbf{p-value with simple $H_0$}: If $F_0$ is strictly increasing, $p* = 1 - F_0(T*)$ (again: $p~_{H_0}Unif[0,1]$).
 

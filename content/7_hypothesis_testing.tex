@@ -29,13 +29,15 @@ The one-sided test is also a test for $H_0:\mu\leq\mu_0$ against $H_1:\mu>\mu_0$
 \footnotesize{With parametric distributions with multiple parameters (e.g. $N(\mu, \sigma^2)$) usually fix one parameter (e.g. $\sigma^2$) resulting in simple test but technically \textit{composite} $H_0$.}
 
 \subsection{Hypothesis Testing and CIs}
-\textbf{Test-inversion}: Assume test $H_0: \theta = \theta_0$ and have test s.t. $P_{\theta_0}(reject H_0) = \alpha$ (size $\alpha$). Assume can perform for any $\theta_0 in \Theta$. Then we have $CS = \{\theta_0\in\Theta: not reject H_0: \theta=\theta_0\}$ with $P_\theta(\theta\in CS) = 1-\alpha$.\\
+\textbf{Test-inversion}: Assume test $H_0: \theta = \theta_0$ (note: this is some $H_0$) and have test s.t. $P_{\theta_0}(reject H_0) = \alpha$ (size $\alpha$). Assume can perform for any $\theta_0 \in \Theta$. Then we have $CS = \{\theta_0\in\Theta: not reject H_0: \theta=\theta_0\}$ with $P_\theta(\theta\in CS) = 1-\alpha$ (\textit{true} $\theta$).\\
 We can also do the reverse: From any CS with coverage rate $1-\alpha$ can construct size $\alpha$ test as $reject\Leftrightarrow \theta_0\notin CS$.\\
 \textbf{Ex. one-sided CI}: Testing $H_0: \mu = \mu_0$ against $H_1:\mu>\mu_0$ (or $H_0: \mu \leq \mu_0$) for normal case we have $CS = \{\mu_0 \in [\bar{X}_n - \frac{t_{1-\alpha, n-1}}{\sqrt{n}}S_n, \infty)\}$.
 
-\subsection{Asymptotic Approximations}: 
-\textbf{Asymptotic argument}: No parametric model $f_(x;\theta)$, but, e.g., moments: $H_0: E(X) = \mu$. $T\xrightarrow{d}|N(0,1)|$ and we can use $\Phi^-1(x)$ to control $\alpha$ asymptotically. In particular, $P(T>z_{1-\alpha/2})\rightarrow \alpha$ under $H_0$.\\ 
-\textbf{Hypotheses}: Set of distributions $\mathbb{P}$ with $\mathbb{P}_0\subset\mathbb{P}$ set of distributions consitent with $H_0$.\\
-\textbf{Def 7.7 (Asymptotic power function)}: $\beta^\alpha(P) = lim_{n\to\infty}beta_n(P)$.\\
+\subsection{Asymptotic Approximations}
+\textbf{Asymptotic argument}: No parametric model $f_X(x;\theta)$, but, e.g., moments: $H_0: E(X) = \mu$. $T\xrightarrow{d}|N(0,1)|$ and we can use $\Phi^{-1}(x)$ to control $\alpha$ asymptotically. In particular, $P(T>z_{1-\alpha/2})\rightarrow \alpha$ under $H_0$.\\ 
+\textbf{Hypotheses}: Set of distributions $\mathcal{P}$ with $\mathcal{P}_0\subset\mathcal{P}$ set of distributions consistent with $H_0$.\\
+\textbf{Def 7.7 (Asymptotic power function)}: $\beta^\alpha(P) = lim_{n\to\infty}\beta_n(P)$.\\
 \textbf{Def 7.8/7.9}: test with $\beta^a(P)$ is \emph{asymptotic level} $\alpha$ if $sup_{P\in P_0}\beta^a(P)\leq\alpha$ (\emph{size}: equality).\\
-\textbf{Def 7.10}: Test \emph{consistent} against alternative $P\in P_1$ if $\beta^a(P) = 1$.
+\textbf{Def 7.10}: Test \emph{consistent} against alternative $P\in P_1$ if $\beta^a(P) = 1$.\\
+\textbf{Example}: $\mathcal{P} = \{P: E(X), E(X^2) < \infty\}$ and $\mathcal{P}_0 = \{P: E(X) = 1\} \subset \mathcal{P}$ and $\mathcal{P}_1: \{P: E(X) \neq 1\} \subset \mathcal{P}$.\\
+\textbf{Problem}: $\beta^a(P)$ might not be informative about finite sample (e.g. $H_0:\mu=\mu_0+\epsilon$). 

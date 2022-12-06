@@ -5,7 +5,7 @@ Equivalently, we define the \textit{log-likelihood function} as $\log(L_n(\theta
 \textbf{Thm 6.2}: For $\tau(\theta)$ and $\hat{\theta}_n$ MLE of $\theta$, we have $\tau(\hat{\theta}_n)$ is MLE of $\tau(\theta)$.
 
 \subsection{Distribution of the MLE}
-\textbf{MLE Limit Distribution}: $\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{d} N(0, A^{-^1}BA^{-1})$ with $A = E_\theta[-\frac{\partial^2}{\partial\theta\partial'\theta}ln(f(\textbf{X}_i);\theta)]$ and $B = E_\theta[\frac{\partial}{\partial\theta}ln(f(\textbf{X}_i;\theta)\frac{\partial\theta}{\partial\theta'})ln(f(\textbf{X}_i;\theta))]$. B \textit{var-cov} matrix of the score (since score mean zero by FOC). A is \textit{Fisher information}.\\
+\textbf{MLE Limit Distribution}: $\sqrt{n}(\hat{\theta}_n - \theta) \xrightarrow{d} N(0, A^{-^1}BA^{-1})$ with $A = E_\theta[-\frac{\partial^2}{\partial\theta\partial'\theta}ln(f(\textbf{X}_i);\theta)]$ and $B = E_\theta[\frac{\partial}{\partial\theta}ln(f(\textbf{X}_i;\theta))\frac{\partial}{\partial\theta'}ln(f(\textbf{X}_i;\theta))]$. B \textit{var-cov} matrix of the score (since score mean zero by FOC). A is \textit{Fisher information}.\\
 \textbf{Thm 6.3}: Under weak reg. cond. (diff; interch. integr./diff.) we have $A=B$.
 
 \subsection{CRLB}

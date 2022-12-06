@@ -23,6 +23,9 @@ linecolor=gray,linewidth=1pt,%
 leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
 }
 
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
 \newcommand{\header}{
 \begin{mdframed}[style=header]
 \footnotesize

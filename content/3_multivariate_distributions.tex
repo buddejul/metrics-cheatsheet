@@ -1,0 +1,35 @@
+\section{Multivariate Distributions}
+\textbf{Def 3.1}: $n$-dimensional rvec is $f: S \to \mathbb{R}^n$.\\
+\subsection{Bivariate Random Vectors}
+Define probability functions on Borel sigma algebra of $\mathbb{R}^2$.\\
+\textbf{Joint CDF}: $F_{X,Y}(x,y) = P(X\leq x, Y\leq y)$.\\
+\textbf{Joint PMF (discrete (X,Y))}: $f_{X,Y} = P(X=x, Y=y)$.\\
+\textbf{Joint PDF (cont + diff)}: $f_{X,Y} = \frac{\partial^2}{\partial x\partial y}F_{X,Y}(x,y)$.\\
+\textbf{Joint PDF (cont + not diff everywhere)}: implicitly via $F_{X,Y} = \int_{-\infty}^y\int_{-\infty}^xf_{X,Y}(u,v)dudv$. \\
+\textbf{Expectations (discrete)}: $E(g(X,Y)) = \sum_{(x,y)\in\mathbb{R}^2:f_{X,Y}(x,y)>0}g(x,y)f_{X,Y}(x,y)$.\\
+\textbf{Expectations (continuous)}: $E(g(X,Y)) = \int_{-\infty}^\infty\int_{-\infty}^\infty g(x,y)f_{X,Y}(x,y)dxdy$.\\
+Need to assume $E(|g(X,Y)|) < \infty$.\\
+\textbf{Discrete-Continuous Case}: Define wrt Borel sigma algebra.\\
+\textbf{Joint $\Rightarrow$ Marginal}: $F_X(x) = lim_{y\to\infty}F_{X,Y}(x,y)$ and $f_{X}(x) = \int_{-\infty}^\infty f_{X,Y}(x,v)dv$.\\
+
+\subsection{Continuous Distributions}
+\textbf{Conditional PMF}: $f_{Y|X}(y|x) = P(Y=y|X=x) = \frac{f_{X,Y}(x,y)}{f_X(x)}$.\\
+\textbf{Conditional CDF (discrete)}: $F_{Y|X}(y|x) = P(Y\leq y|X=x) = \frac{P(Y\leq Y, X = X)}{P(X=x)}$.\\
+For continuous rvs more difficult because $P(X=x) = 0$.\\
+\textbf{Conditional CDF (continuous)}: $F_{Y|X}(y|x) = \lim_{\epsilon\downarrow0}P(Y\leq y | X \in [x-\epsilon, x + \epsilon]) = \ldots = \int_{-\infty}^y \left(\frac{f_{X,Y}(x,v)}{f_X(x)}\right)dv$, which also implies cond pdf.\\
+\textbf{Conditional Expectation}: $E(g(Y)|X=x) = \sum_{y\in\mathbb(Y)}g(y)f_{Y|X}(y|x)$ or $=\int_{-\infty}^\infty g(y)f_{Y|X}(y|x)dy$.\\
+\textbf{Thm 3.1 (LIE)}: $Y,X$ rvs, then $E(Y) = E_X(E_{Y|X}(Y|X))$.\\
+\textbf{Law of iterated variance}: $Var(Y) = E(Var(Y|X)) + Var(E(Y|X))$.
+
+\subsection{Independence}
+\textbf{Def 3.4}: $(X,Y)$ rvec, $X,Y$ \textit{independent} if $\forall x\in \mathbb{R}, y\in\mathbb{R}$ we have $f_{X,Y}(x,y) = f_X(x)f_Y(y)$.\\
+\textbf{Thm 3.2}: $X,Y$ independent $\Leftrightarrow$ for any two bounded $g,h:\mathbb{R}\to\mathbb{R}$ we have $E(g(X)g(Y)) = E(g(X))E(h(Y))$.\\
+\textbf{Thm 3.3}: $X,Y$ independent, $g(X)$ and $g(Y)$ independent.\\
+
+\subsection{Measure of linear relationships}
+\textbf{Covariance}: $Cov(X,Y) = E[(X-E(X))(Y-E(Y))]$.\\
+\textbf{Independence and Cov}: Independence $\Rightarrow Cov(X,Y) = 0$, but not the other way around (e.g. $X~\sim Unif(-1,1), Y=X^2$).\\
+\textbf{Correlation}: $Corr(X,Y) = \frac{Cov(X,Y)}{SD(X)SD(Y)} \in [-1,1]$.\\
+ 
+
+

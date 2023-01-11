@@ -1,0 +1,41 @@
+\section{Regression, Causality, and Identification}
+\subsection{Basics}
+\textbf{Conditional mean function}: $m(X) = E[Y|X]$.
+\textbf{Error}: $e = Y - E[Y|X]$, which implies\\
+$Y = m(X) + e$ \\
+By definition: $E[e|X] = 0$.
+
+\subsection{Linear Regression Model}
+\textbf{Linear m(X)}: $m(X) = X_1\beta_1 + X_2\beta_2 + \ldots + X_k\beta_k + \beta_{k+1}$\\
+\textit{Linear} means linear \textit{in the parameters}.\\
+\textbf{Saturated model}: Includes an indicator for each level of the regressor(s). In this case, the model \textit{is} the CEF.
+
+\subsection{Causality}
+Outcome $Y$, observed regressors $X$, and \textit{unobserved} variables $U$. Then $Y = g(X,U)$ where $g$ is the \textit{structural function}.\\
+\textbf{Causal effect}: Change of $X_i$ from $x_0$ to $x_1$ holding $U_i$ fixed, i.e. $g(x_1, U_i) - g(x_0, U_i)$.\\
+\textbf{Marginal causal effect}: $\frac{\partial}{\partial x}g(x_0, U_i)$ if $x$ is scalar.\\
+\textbf{Heterogenous causal effects}: Generally, effects depend on value of $U_i$, implying a \textit{distribution} of causal effects.\\
+\textbf{Average marginal effects}: $E[\frac{\partial}{\partial x}g(x_0, U)]$.\\
+\textbf{Average treatment effect}: $E[g(x_1, U)] - E[g(x_0, U)]$ when $x$ is discrete.\\
+\textbf{Average structural function}: $ASF(x) = E[g(x,U)]$. \\
+In general, $ASF(x) \neq E[Y|X=x] = E[g(x, U)|X=x]$ because $X, U$ might not be independent.\\
+\textbf{Potential outcome}: $Y(x) = g(x,U)$.\\
+
+\subsection{Causality in the Linear Model}
+Suppose scalar $x$, so $Y = g(X,U) = X\beta_1 + \beta_2 + U$.\\
+Then $\beta_1$ is the marginal and average treatment effect. Does \textit{not} require mean independence.\\
+But: $m(X)$ might have a different slope coefficient. Suppose $E[U|X] = X\gamma_1 + \gamma_2$ implying $E[Y|X] = X(\beta_1+\gamma_1) + (\beta_2 + \gamma_2)$.\\
+Three assumptions required:\\
+\textbf{(1) Linearity}: Marginal effect does not depend on value of $x$.\\
+\textbf{(2) Homogeneity/additivity}: Marginal effect does not depend on $U$; $X, U$ enter additively.\\
+\textbf{(3) Exogeneity}: Mean of $U$ independent of $X$, $E[U|X] = c = 0$.\\
+Relaxation: (1) Interaction terms, polynomials, (3) additional regressors/IV/panel.\\
+For (2): introduce individual slope coefficients $\beta_{1,i}$. Could try to estimate distribution (difficult), never individual slopes. Different target: $E[\beta_{1,i}]$.\\
+Assume $E[U_i|X_i] = 0$ and $E[\beta_{1,i}] = E[\beta_{1,i}]$, then $E[Y_i|X_i] = X_iE[\beta_{1,i}] + \beta_2$.\\
+
+\subsection{Identification}
+What does the joint distribution of observables tell about parameters?\\
+Regression model: $Y = X_1\beta_1 + \ldots + X_{k-1}\beta_{k-1} + \beta_k + e =X'\beta + e$ with $E[e|X] = 0$.\\
+\textbf{Identification of $\beta$}: $E[Xe] = 0 \Leftrightarrow E[X(Y-X'\beta)] = 0 \Leftrightarrow E[XY] = E[XX']\beta \Leftrightarrow \beta = E[XX']^{-1}E[XY]$, where $E[XX']$ needs \textit{full rank}.\\
+\textbf{Underidentification}: $E[XX']$ \textit{not} full rank, $\exists \gamma \in \mathbb{R}, \gamma \neq 0$ s.t. $E[XX']\gamma = 0 \Rightarrow \gamma' E[XX']\gamma = 0 \Rightarrow E[(X'\gamma)^2] = 0$, i.e. $X'\gamma = 0$ with probability 1. Thus $\forall c\in\mathbb{R}$, $Y = X'\beta + e = X'(\beta + c\gamma) + e$.\\
+Violations of full rank: $X_k$ linear combination of other $X_j$.

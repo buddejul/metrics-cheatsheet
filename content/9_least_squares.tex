@@ -1,0 +1,45 @@
+\section{Least Squares}
+\subsection{Interpretations}
+$Y$ scalar outcome, $X\in\mathbb{R}^k$, with $E[XX']$ full rank, then $\beta = E[XX']E[XY]$. We can write $Y = X'\beta +e$ with $e = Y-X'\beta$.
+\textbf{(1) Slope of conditional mean}: $Y = X'\beta + e$, $E[e|X] = 0$. $\beta$ purely \textit{descriptive}.\\
+\textbf{(2) Marginal causal effect}: $U$ scalar r.v. Causal relationship with structural function $Y = X'\beta + U$. Then $\beta$ is \textit{marginal causal effect}. Requires: linearity, homogeneity/additivity. Under exogeneity ($E[U|X] = 0$) we have $E[Y|X] = X'\beta$ and $\beta$ is identified under full rank.\\
+\textbf{(3) Average causal effect}: $U$ scalar r.v., but $B\in\mathbb{R}^k$ random vector. Model causal relationship $Y = X'B + U$. Marginal causal effect $B$ is random. Assume $E[B|X] = E[B] = \beta$ and $E[U|X] = 0$. Then $\beta$ is \textit{average causal effect}. $E[Y|X] = X'\beta$ and identified under full rank.\\
+\textbf{(4) Best linear approximation}: Suppose $m(X) = E[Y|X]$ may be non-linear, want best linear approximation. Solve $\min_{b\in\mathbb{R}^k}E[(m(X) - X'b)^2]$. Can show solution coincides with BLP of $Y$ given $X$ solving $\min_{b\in\mathbb{R}^k}E[(Y-X'b)^2]$. Solution: $b* = \beta = E[XX']^{-1}E[XY]$ (given full rank).
+\textbf{(5) Projection}: Let $\beta = E[XX']^{-1}E[XY]$ and define $e = Y - X'\beta$. If $m(X)$ non-linear, $E[e|X]$ may depend on $X$. However, $E[Xe] = 0$ (FOC). Then $X'\beta$ is the projection of $Y$ onto the space spanned by linear combinations of $X$, and $\beta$ is the \textit{projection coefficient} (under full rank).
+
+\subsection{Estimation: Sample analogues}
+$\beta = E[XX']^{-1}E[XY]$ under full rank. Replace expectations by sample analogues:
+$$ \hat{\beta} = \left(\frac{1}{n}\sum_{i=1}^nX_iX_i'\right)^{-1}\left(\frac{1}{n}\sum_{i=1}^n X_iY_i\right).$$\\
+\textbf{Consistency} follows from a LLN (with i.i.d. sample) and CMT.
+
+\subsection{Estimation: Least squares estimator}
+$\{Y_i, X_i\}_{i=1}^n$ random sample. \\
+$\hat{\beta} := \argmin_{b\in\mathbb{R}^k} \sum_{i=1}^n(Y_i - X_i'b)^2$.\\
+The unique solution under full rank is the sample analogue estimator.\\
+\textbf{Fitted values}: $\hat{Y}_i = X_i'\hat{\beta}$.\\
+\textbf{Residuals}: $\hat{e} = Y_i - \hat{Y}_i$.\\
+\textbf{No full rank}: No unique solution. Then $\exists c\in\mathbb{R}^k$ s.t. $X_i'c = 0\forall i$, $c\neq0$.
+\textbf{Interpretation}: $Y_i = X_i'\beta + \alpha + e_i$. Then 
+$$\hat{\beta} = \frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X}_n)(Y_i-\bar{Y}_n)}{\frac{1}{n}(X_i-\bar{X}_n)^2}$$
+i.e. sample covariance over variance.
+
+\subsection{Algebraic Properties}
+Projection: Decomposition of $Y$ into $X'\beta$ and $Y-X'\beta$ with $E[X'\beta(Y-X'\beta)] = 0$. Analogues results for sample version.\\
+\textbf{Residuals orthogonal to regressors}: $\sum_{i=1}^nX_i\hat{e}_i = 0$ (by FOCs).\\
+\textbf{Residuals some to zero}: If $X_i$ contains a constant, we have $\sum_{i=1}^n\hat{e}_i = 0$ (by FOC).
+\textbf{Residuals orthogonal to fitted values}: $\sum_{i=1}^n \hat{Y}_i\hat{e}_i = 0$ (by FOCs). \\
+Thus can \textit{decompose} $Y$ into two \textit{orthogonal} components.\\
+\textbf{R-squared}: $\sum_{i=1}^n(Y_i-\bar{Y}_n)^2 = \sum_{i=1}^n(\hat{Y}_i - \bar{\hat{Y}}_i)^2 + \sum_{i=1}^n\hat{e}^2_i$, so sample variance is fitted variance plus residual variance. $R^2:=$ fitted variance over sample variance.\\
+\textit{Drawback}: increases trivially when adding regressors $\Rightarrow$ \textit{Adjusted} $R^2$: $1 - \frac{n-1}{n-k}(1-R^2)$.
+
+\subsection{Matrix Notation}
+$Y$ and $e$ are $n\times1$ vectors, and $X$ an $n\times k$ matrix. Then write $Y = X\beta + e$, a system of $n$ equations. Also, $\sum_{i=1}^n X_iY_i = X'Y$ and $\sum_{i=1}^n X_iX_i' = X'X$.\\
+\textbf{OLS estimator} $\hat{\beta} = (X'X)^{-1}X'Y$.\\
+\textbf{Decomposition}: $Y = \hat{Y} + \hat{e} = X\hat{\beta} + (Y - \hat{Y})$.\\
+\textbf{Projection}: $\hat{Y} = X\hat{\beta} = X(X'X)^{-1}X'Y = PY$ where $P$ is projection matrix.\\
+Intuition: For any $z\in R^n$, $PZ$ returns $n\times 1$ vector that is linear combination of columns of $X$ (i.e. regressors). $P$ symmetric ($P'=P$) and idempotent ($PP=P$). Also, $PX = X$, thus for any $\gamma \in \mathbb{R}^k$, $PX\gamma = X\gamma$.\\
+\textbf{Annihilator}: $Y = \hat{Y} + \hat{e} = PY + MY$ where $M = I_n - P$. $M$ symmetric and idempotent and $MX = 0$, $MP = 0$.\\
+Thus $\hat{Y}'\hat{e} = (PY)'(MY) = YPMY = 0$.\\
+Useful property: $tr(P) = tr(X(X'X)^{-1}X') = tr(X'X(X'X)^{-1}) = tr(I_k) = k$.
+
+\subsection{Small Sample Properties}
